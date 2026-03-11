@@ -4,6 +4,7 @@ import random
 import requests
 import logging
 from telebot import TeleBot, types
+from dotenv import load_dotenv
 
 # Настройка логирования
 logger = logging.getLogger(__name__)
@@ -31,7 +32,7 @@ logger.addHandler(console_handler)
 # Настраиваем логирование для библиотек
 logging.getLogger('requests').setLevel(logging.WARNING)
 logging.getLogger('urllib3').setLevel(logging.WARNING)
-
+load_dotenv()
 auth_token = os.getenv('TOKEN')
 bot = TeleBot(token=auth_token)
 
